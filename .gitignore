@@ -1,0 +1,9 @@
+deterministic/896x128/h5_files/
+deterministic/896x128/results/
+deterministic/896x128/old_files/
+deterministic/224x32/results/
+deterministic/224x32/old_files/
+deterministic/224x32/xi_calculation_vis_btb_config1/data_for_xi_calculation/
+deterministic/224x32/xi_calculation_vis_btb_config1/results/
+stochastic/224x32/old_files/
+stochastic/224x32/results/
