@@ -3,16 +3,16 @@ This repository contains code for the simulation of a structure-preserving ideal
 
 ## The climate model
 The climate model can be described by 
-$$
+```math
 \begin{aligned}
 \text{Atmosphere}: \ &\mathrm{d} \mathbf{u}^a + (\mathbf{u}^a \mathrm{d} t + \sum_i \boldsymbol{\xi}_i \circ \mathrm{d} W^i_t)\cdot \nabla \mathbf{u}^a + \frac{1}{Ro^a} \hat{\mathbf{z}} \times \mathbf{u}^a\mathrm{d} t \\
-                &\qquad \qquad + \sum_i (u_1^a \nabla \xi_{i,1} + u_2^a \nabla \xi_{i,2} )\circ \mathrm{d} W^i_t = (-\frac{1}{C^a} \nabla \theta + \nu^a \Delta \mathbf{u}^a) \mathrm{d} t, \\
+                &\qquad + \sum_i (u_1^a \nabla \xi_{i,1} + u_2^a \nabla \xi_{i,2} )\circ \mathrm{d} W^i_t = (-\frac{1}{C^a} \nabla \theta + \nu^a \Delta \mathbf{u}^a) \mathrm{d} t, \\
         &\mathrm{d} \theta^a + \nabla\cdot (\theta^a \mathbf{u}^a)\mathrm{d} t + \sum_i (\boldsymbol{\xi}_i \circ \mathrm{d} W^i_t) \cdot \nabla \theta^a = (\gamma(\theta^a - \theta^o) + \nu^a \Delta \theta )\mathrm{d} t,\\
 \text{Ocean}: \ &\frac{\partial \mathbf{u}^o}{\partial t} + (\mathbf{u}^o\cdot \nabla)\mathbf{u}^o + \frac{1}{Ro^o} \hat{\mathbf{z}} \times \mathbf{u}^o + \frac{1}{Ro^o} \nabla p^a = \sigma(\mathbf{u}^o - \mathbb{E}\mathbf{u}_{sol}^a) + \nu^o \Delta \mathbf{u}^o,\\
     & \nabla \cdot \mathbf{u}^o = 0,\\
     &\frac{\partial \theta^o}{\partial t} + \mathbf{u}^o \cdot \nabla \theta^o = \eta^o \Delta \theta^o,
 \end{aligned}
-$$
+```
 where the vector variable $\mathbf{{u}}$ and the scalar variables $\theta$ and  $p$ (with superscripts for the atmosphere and ocean components) denote the velocity, temperature, and pressure fields, respectively. $W_t^i$ are independent Brownian motions and, $u_j^a$ and $\xi_{i,j}$ denote the $j$ th components of atmosphere velocity $\mathbf{u}^a$ and the spatial correlation vectors $\boldsymbol{\xi}_i$, respectively.
 
 We discretize the climate model equations using finite element method (FEM) and solve the discrete equations on [Firedrake](https://www.firedrakeproject.org/) open-source package. The simulation results are visualized using [Paraview](https://www.paraview.org/). 
@@ -20,16 +20,15 @@ We discretize the climate model equations using finite element method (FEM) and 
 One of the first steps in the numerical simulation of stochastic climate model is the model calibration. This involves estimation of the unknown correlation vectors $\boldsymbol{\xi}_i$ representing the unresolved transport dynamics. In our work, we use data from high-resolution simulation of the deterministic version of the climate model to determine $\boldsymbol{\xi}_i$.
 
 The deterministic climate model equations are 
-$$
-\begin{align*}
+```math
+\begin{aligned}
     \text{Atmosphere}: \ &\frac{\partial \mathbf{u}^a}{\partial t} + (\mathbf{u}^a\cdot \nabla)\mathbf{u}^a + \frac{1}{Ro^a} \hat{\mathbf{z}} \times \mathbf{u}^a + \frac{1}{C^a} \nabla \theta^a = {\nu}^a \Delta \mathbf{u}^a, \\
         &\frac{\partial \theta^a}{\partial t} + \nabla \cdot (\mathbf{u}^a \theta^a) = \gamma(\theta^a - \theta^o) + \eta^a \Delta \theta^a,\\
     \text{Ocean}: \ &\frac{\partial \mathbf{u}^o}{\partial t} + (\mathbf{u}^o\cdot \nabla)\mathbf{u}^o + \frac{1}{Ro^o} \hat{\mathbf{z}} \times \mathbf{u}^o + \frac{1}{Ro^o} \nabla p^o = \sigma(\mathbf{u}^o - \mathbf{u}_{sol}^a) + \nu^o \Delta \mathbf{u}^o,\\
     & \nabla \cdot \mathbf{u}^o = 0,\\
     &\frac{\partial \theta^o}{\partial t} + \mathbf{u}^o \cdot \nabla \theta^o = \eta^o \Delta \theta^o.
-\end{align*}
-$$
-
+\end{aligned}
+```
 
 ## This repository
 It contains codes for solving the deterministic and stochastic climate model equations as **python** scripts. These are designed to be run on **Firedrake** software. The folders `deterministic` and `stochastic` contain the code for deterministic and stochastic models, respectively.
