@@ -76,7 +76,8 @@ We show some of the main simulation results here. The model equations are solved
   <img src="stochastic/224x32/plots/ou_same_ic/cm_res_32_atm_ux_var_99_part_50_t25_onwards.svg" alt="UQ_ux" width="85%">
   <figcaption>Evolution of atmospheric velocity (x-component) at six observation points on the grid over time (t=25 to t=45). The solution from the stochastic model is compared with the coarse-grained high-resolution solution (truth) and the deterministic model solution.</figcaption>
 </figure>
-<br><figure>
+<p>&nbsp;</p>
+<figure>
   <img src="stochastic/224x32/plots/ou_same_ic/spread_rmse_res_32_atm_ux_var_99_part_50_t25_onwards.svg" alt="UQ_rmse_spread" width="85%">
   <figcaption>Ensemble RMSE and spread of velocity (x-component) at six observation points in the grid over time.</figcaption>
 </figure>
