@@ -4,14 +4,14 @@ This repository contains code for the simulation of a structure-preserving ideal
 ## The climate model
 The climate model can be described by 
 $$
-\begin{align*}
+\begin{aligned}
 \text{Atmosphere}: \ &\mathrm{d} \mathbf{u}^a + (\mathbf{u}^a \mathrm{d} t + \sum_i \boldsymbol{\xi}_i \circ \mathrm{d} W^i_t)\cdot \nabla \mathbf{u}^a + \frac{1}{Ro^a} \hat{\mathbf{z}} \times \mathbf{u}^a\mathrm{d} t \\
                 &\qquad \qquad + \sum_i (u_1^a \nabla \xi_{i,1} + u_2^a \nabla \xi_{i,2} )\circ \mathrm{d} W^i_t = (-\frac{1}{C^a} \nabla \theta + \nu^a \Delta \mathbf{u}^a) \mathrm{d} t, \\
         &\mathrm{d} \theta^a + \nabla\cdot (\theta^a \mathbf{u}^a)\mathrm{d} t + \sum_i (\boldsymbol{\xi}_i \circ \mathrm{d} W^i_t) \cdot \nabla \theta^a = (\gamma(\theta^a - \theta^o) + \nu^a \Delta \theta )\mathrm{d} t,\\
 \text{Ocean}: \ &\frac{\partial \mathbf{u}^o}{\partial t} + (\mathbf{u}^o\cdot \nabla)\mathbf{u}^o + \frac{1}{Ro^o} \hat{\mathbf{z}} \times \mathbf{u}^o + \frac{1}{Ro^o} \nabla p^a = \sigma(\mathbf{u}^o - \mathbb{E}\mathbf{u}_{sol}^a) + \nu^o \Delta \mathbf{u}^o,\\
     & \nabla \cdot \mathbf{u}^o = 0,\\
     &\frac{\partial \theta^o}{\partial t} + \mathbf{u}^o \cdot \nabla \theta^o = \eta^o \Delta \theta^o,
-\end{align*}
+\end{aligned}
 $$
 where the vector variable $\mathbf{{u}}$ and the scalar variables $\theta$ and  $p$ (with superscripts for the atmosphere and ocean components) denote the velocity, temperature, and pressure fields, respectively. $W_t^i$ are independent Brownian motions and, $u_j^a$ and $\xi_{i,j}$ denote the $j$ th components of atmosphere velocity $\mathbf{u}^a$ and the spatial correlation vectors $\boldsymbol{\xi}_i$, respectively.
 
@@ -34,7 +34,7 @@ $$
 ## This repository
 It contains codes for solving the deterministic and stochastic climate model equations as **python** scripts. These are designed to be run on **Firedrake** software. The folders `deterministic` and `stochastic` contain the code for deterministic and stochastic models, respectively.
 
-Additionally, it contains *jupyter notebooks* ( in `.deterministic/224x32/xi_calculation_vis_btb_config1`) which we used to estimate  $\boldsymbol{\xi}_i$.
+Additionally, it contains **jupyter notebooks** ( in `.deterministic/224x32/xi_calculation_vis_btb_config1`) which we used to estimate  $\boldsymbol{\xi}_i$.
 
 We used **numpy** and **matplotlib** libraries for further analyzing the simulation data and plotting results. **Jupyter notebooks** used for this purpose are also contained in this repository. 
 
