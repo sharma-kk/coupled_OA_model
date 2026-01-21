@@ -37,6 +37,13 @@ Additionally, it contains **jupyter notebooks** ( in `deterministic/224x32/xi_ca
 
 We used **numpy** and **matplotlib** libraries for further analyzing the simulation data and plotting results. **Jupyter notebooks** used for this purpose are also contained in this repository. 
 
+## How to run the code?
+
+The [Firedrake](https://www.firedrakeproject.org/) software needs to be installed for running the **Python** scripts in this repository. The scripts for the high resolution deterministic climate model are designed to be run on parallel cores. For example, if you want to run the model on 32 cores, simply execute (after activating the Firedrake environment) `mpiexec -n 32 python3 btb_coupled_model_config.py` in the terminal. 
+
+The scripts for the stochastic model are designed to be strictly run parallel cores. In this way, each core runs an independent realization of the stochastic partial differential equation (SPDE). 
+
+If you have questions regarding the numerical schemes or encounter problems in running the code, feel free to contact me at `kamalkishorsharma123@gmail.com`.
 ## Simulation results
 We show some of the main simulation results here. The model equations are solved on a rectangular domain with periodic boundary conditions in the $x$ direction and free-slip boundary conditions in the $y$ direction. 
 ### Deterministic climate model
